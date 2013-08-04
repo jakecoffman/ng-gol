@@ -1,0 +1,34 @@
+<html ng-app="gol">
+<head>
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
+		  rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="gol.js"></script>
+</head>
+<body ng-controller="GolCtl">
+<h1>Game of Life</h1>
+
+<h2>Instructions</h2>
+
+<p>Click on "Next generation" to play one round. Click on cells to kill/live an individual.</p>
+
+<button class="btn btn-primary" ng-click="tick()">Next generation</button>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="offset1 span10">
+			<div ng-repeat="row in board">
+				<div ng-repeat="cell in row" style="display: inline">
+					<i class="icon-circle" ng-show="cell == 1" ng-click="flip($parent.$index, $index)"></i>
+					<i class="icon-circle-blank" ng-show="cell == 0" ng-click="flip($parent.$index, $index)"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
